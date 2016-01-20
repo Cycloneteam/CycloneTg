@@ -219,7 +219,8 @@ function create_config( )
     "download_media",
     "invite",
     "all",
-    "leave_ban"
+    "leave_ban",
+    "plugins"
     },
     sudo_users = {90285047},--Sudo users
     disabled_channels = {},
@@ -361,9 +362,9 @@ return group id or user id
 !help🤔
 
 !lock [member|name|bots|leave]😎
-Locks [member|name|bots|leaveing]🤓
+Locks [member|name|bots|leaveing]
 
-!unlock [member|name|bots|leave]
+!unlock [member|name|bots|leave]🤓
 Unlocks [member|name|bots|leaving]
 
 !set rules <text>😥
