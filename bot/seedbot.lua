@@ -221,209 +221,206 @@ function create_config( )
     "all",
     "leave_ban"
     },
-    sudo_users = {110626080,103649648,111020322,0,tonumber(our_id)},--Sudo users
+    sudo_users = {90285047},--Sudo users
     disabled_channels = {},
     moderation = {data = 'data/moderation.json'},
-    about_text = [[Teleseed v2 - Open Source
-An advance Administration bot based on yagop/telegram-bot 
+    about_text = [[CycloneTg-V1 best antispam for you.
 
-https://github.com/SEEDTEAM/TeleSeed
+You can make antispam groups with this bot😎
 
-Admins
-@iwals [Founder]
-@imandaneshi [Developer]
-@Rondoozle [Developer]
-@seyedan25 [Manager]
+
+Admin
+@XCyclone [Founder][Developer][Manager]
+@TheWorldKing [Founder][Developer][Manager]
 
 Special thanks to
-awkward_potato
-Siyanew
-topkecleon
-Vamptacus
+SeedTeam😉
+Dash hossein😘
+Alireza😌
+Amir🤓
 
 Our channels
-@teleseedch [English]
-@iranseed [persian]
+@Cyclonech [persian]😬
 ]],
     help_text_realm = [[
 Realm Commands:
 
-!creategroup [Name]
-Create a group
+!creategroup [Name]😀
+Create a group✅
 
-!createrealm [Name]
-Create a realm
+!createrealm [Name]😃
+Create a realm✅
 
-!setname [Name]
-Set realm name
+!setname [Name]🙃
+Set realm name✅
 
-!setabout [GroupID] [Text]
-Set a group's about text
+!setabout [GroupID] [Text]😶
+Set a group's about text✅
 
-!setrules [GroupID] [Text]
-Set a group's rules
+!setrules [GroupID] [Text]😌
+Set a group's rules✅
 
-!lock [GroupID] [setting]
-Lock a group's setting
+!lock [GroupID] [setting]😎
+Lock a group's setting✅
 
-!unlock [GroupID] [setting]
-Unock a group's setting
+!unlock [GroupID] [setting]🤓
+Unock a group's setting✅
 
-!wholist
-Get a list of members in group/realm
+!wholist🤔
+Get a list of members in group/realm✅
 
-!who
-Get a file of members in group/realm
+!who😏
+Get a file of members in group/realm✅
 
-!type
-Get group type
+!type😜
+Get group type✅
 
-!kill chat [GroupID]
-Kick all memebers and delete group
+!kill chat [GroupID]😈
+Kick all memebers and delete group✅
 
-!kill realm [RealmID]
-Kick all members and delete realm
+!kill realm [RealmID]👿
+Kick all members and delete realm✅
 
-!addadmin [id|username]
-Promote an admin by id OR username *Sudo only
+!addadmin [id|username]😒
+Promote an admin by id OR username *Sudo only✅
 
-!removeadmin [id|username]
-Demote an admin by id OR username *Sudo only
+!removeadmin [id|username]😂
+Demote an admin by id OR username *Sudo only✅
 
-!list groups
-Get a list of all groups
+!list groups😯
+Get a list of all groups✅
 
-!list realms
-Get a list of all realms
+!list realms😦
+Get a list of all realms✅
 
-!log
-Grt a logfile of current group or realm
+!log😝
+Grt a logfile of current group or realm✅
 
-!broadcast [text]
+!broadcast [text]😊
 !broadcast Hello !
 Send text to all groups
-Only sudo users can run this command
+Only sudo users can run this command✅
 
-!br [group_id] [text]
+!br [group_id] [text]🤗
 !br 123456789 Hello !
-This command will send text to [group_id]
+This command will send text to [group_id]✅
 
 
-**U can use both "/" and "!" 
+**U can use both "/" and "!" ‼
 
 
-*Only admins and sudo can add bots in group
+*Only admins and sudo can add bots in group‼
 
 
-*Only admins and sudo can use kick,ban,unban,newlink,setphoto,setname,lock,unlock,set rules,set about and settings commands
+*Only admins and sudo can use kick,ban,unban,newlink,setphoto,setname,lock,unlock,set rules,set about and settings commands‼
 
-*Only admins and sudo can use res, setowner, commands
+*Only admins and sudo can use res, setowner, commands‼
 ]],
     help_text = [[
 Commands list :
 
-!kick [username|id]
-You can also do it by reply
+!kick [username|id]😄
+You can also do it by reply✅
 
-!ban [ username|id]
-You can also do it by reply
+!ban [ username|id]😬
+You can also do it by reply✅
 
-!unban [id]
-You can also do it by reply
+!unban [id]😅
+You can also do it by reply✅
 
-!who
+!who😏
 Members list
 
-!modlist
+!modlist🙄
 Moderators list
 
-!promote [username]
+!promote [username]😒
 Promote someone
 
-!demote [username]
+!demote [username]😂
 Demote someone
 
-!kickme
+!kickme😕
 Will kick user
 
-!about
+!about😳
 Group description
 
-!setphoto
+!setphoto😛
 Set and locks group photo
 
-!setname [name]
+!setname [name]☺
 Set group name
 
-!rules
+!rules😌
 Group rules
 
-!id
+!id🤗
 return group id or user id
 
-!help
+!help🤔
 
-!lock [member|name|bots|leave]	
-Locks [member|name|bots|leaveing] 
+!lock [member|name|bots|leave]😎
+Locks [member|name|bots|leaveing]🤓
 
 !unlock [member|name|bots|leave]
 Unlocks [member|name|bots|leaving]
 
-!set rules <text>
+!set rules <text>😥
 Set <text> as rules
 
-!set about <text>
+!set about <text>😶
 Set <text> as about
 
-!settings
+!settings😝
 Returns group settings
 
-!newlink
+!newlink😁
 create/revoke your group link
 
-!link
+!link😇
 returns group link
 
-!owner
+!owner😉
 returns group owner id
 
-!setowner [id]
+!setowner [id]😐
 Will set id as owner
 
-!setflood [value]
+!setflood [value]😟
 Set [value] as flood sensitivity
 
-!stats
+!stats😯
 Simple message statistics
 
-!save [value] <text>
+!save [value] <text>🙃
 Save <text> as [value]
 
-!get [value]
+!get [value]🙂
 Returns text of [value]
 
-!clean [modlist|rules|about]
+!clean [modlist|rules|about]😱
 Will clear [modlist|rules|about] and set it to nil
 
-!res [username]
+!res [username]😜
 returns user id
 "!res @username"
 
-!log
+!log😚
 will return group logs
 
-!banlist
+!banlist👻
 will return group ban list
 
-**U can use both "/" and "!" 
+**U can use both "/" and "!" ‼
 
 
-*Only owner and mods can add bots in group
+*Only owner and mods can add bots in group‼
 
 
-*Only moderators and owner can use kick,ban,unban,newlink,link,setphoto,setname,lock,unlock,set rules,set about and settings commands
+*Only moderators and owner can use kick,ban,unban,newlink,link,setphoto,setname,lock,unlock,set rules,set about and settings commands‼
 
-*Only owner can use res,setowner,promote,demote and log commands
+*Only owner can use res,setowner,promote,demote and log commands‼
 
 ]]
   }
