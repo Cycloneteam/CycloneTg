@@ -1,6 +1,6 @@
 do 
 function run(msg,matches)
-  return " �spammings "
+  return " کیرم تو کس عمت حفه شو "
 end
 return {
   description = " spammer ", 
