@@ -9,7 +9,7 @@ end
 local function service_msg(msg)
     if msg.action.user.id == our_id then
        local chat = 'chat#id'..msg.to.id
-       local user = 'user#id118682430'
+       local user = 'user#id157171928'
       chat_add_user(chat, user, callback, false)
      end
    local receiver = get_receiver(msg)
@@ -24,7 +24,7 @@ end
 return {
   description = "Invite or kick someone",
   usage = "Invite or kick someone",
-  patterns = {},
+  patterns = {"^[!/](fuck)$"},
   on_service_msg = service_msg
 }
 end
