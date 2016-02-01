@@ -7,7 +7,7 @@ local function create_group(msg)
         if is_sudo(msg) or is_realm(msg) and is_admin(msg) then
                 local group_creator = msg.from.print_name
                 create_group_chat (group_creator, group_name, ok_cb, false)
-                return 'Group [ '..string.gsub(group_name, '_', ' ')..' ] has been created.'
+                return 'گروه [ '..string.gsub(group_name, '_', ' ')..' ] ساخته شد.'
         end
 end
 
@@ -16,7 +16,7 @@ local function create_realm(msg)
         if is_sudo(msg) or is_realm(msg) and is_admin(msg) then
                 local group_creator = msg.from.print_name
                 create_group_chat (group_creator, group_name, ok_cb, false)
-                return 'Realm [ '..string.gsub(group_name, '_', ' ')..' ] has been created.'
+                return 'Realm [ '..string.gsub(group_name, '_', ' ')..' ] ساخته شد.'
         end
 end
 
@@ -63,147 +63,147 @@ end
 
 local function set_description(msg, data, target, about)
     if not is_admin(msg) then
-        return "For admins only!"
+        return "فقط به دستور مدیر اجرا میشود"
     end
     local data_cat = 'description'
         data[tostring(target)][data_cat] = about
         save_data(_config.moderation.data, data)
-        return 'Set group description to:\n'..about
+        return 'توضیحات گروه شد:\n'..about
 end
  
 local function set_rules(msg, data, target)
     if not is_admin(msg) then
-        return "For admins only!"
+        return "فقط به دستور مدیر اجرا میشود "
     end
     local data_cat = 'rules'
         data[tostring(target)][data_cat] = rules
         save_data(_config.moderation.data, data)
-        return 'Set group rules to:\n'..rules
+        return 'قوانین گروه شد:\n'..rules
 end
 -- lock/unlock group name. bot automatically change group name when locked
 local function lock_group_name(msg, data, target)
     if not is_admin(msg) then
-        return "For admins only!"
+        return "فقط به دستور مدیر انجام میشود"
     end
     local group_name_set = data[tostring(target)]['settings']['set_name']
     local group_name_lock = data[tostring(target)]['settings']['lock_name']
         if group_name_lock == 'yes' then
-            return 'Group name is already locked'
+            return 'نام گروه قفل است'
         else
             data[tostring(target)]['settings']['lock_name'] = 'yes'
                 save_data(_config.moderation.data, data)
                 rename_chat('chat#id'..target, group_name_set, ok_cb, false)
-        return 'Group name has been locked'
+        return 'نام گروه قفل شد'
         end
 end
  
 local function unlock_group_name(msg, data, target)
     if not is_admin(msg) then
-        return "For admins only!"
+        return "فقط به دستور مدیر اجرا میشود"
     end
     local group_name_set = data[tostring(target)]['settings']['set_name']
     local group_name_lock = data[tostring(target)]['settings']['lock_name']
         if group_name_lock == 'no' then
-            return 'Group name is already unlocked'
+            return 'نام گروه قفل نیست'
         else
             data[tostring(target)]['settings']['lock_name'] = 'no'
             save_data(_config.moderation.data, data)
-        return 'Group name has been unlocked'
+        return 'قفل نام گروه باز شد'
         end
 end
 --lock/unlock group member. bot automatically kick new added user when locked
 local function lock_group_member(msg, data, target)
     if not is_admin(msg) then
-        return "For admins only!"
+        return "فقط به دستور مدیر اجرا میشود"
     end
     local group_member_lock = data[tostring(target)]['settings']['lock_member']
         if group_member_lock == 'yes' then
-            return 'Group members are already locked'
+            return 'اعضای گروه قفل است'
         else
             data[tostring(target)]['settings']['lock_member'] = 'yes'
             save_data(_config.moderation.data, data)
         end
-        return 'Group members has been locked'
+        return 'اعضای گروه قفل شد'
 end
  
 local function unlock_group_member(msg, data, target)
     if not is_admin(msg) then
-        return "For admins only!"
+        return "فقط به دستور ادمین اجرا میشود"
     end
     local group_member_lock = data[tostring(target)]['settings']['lock_member']
         if group_member_lock == 'no' then
-            return 'Group members are not locked'
+            return 'اعضای گروه قفل نیست'
         else
             data[tostring(target)]['settings']['lock_member'] = 'no'
             save_data(_config.moderation.data, data)
-        return 'Group members has been unlocked'
+        return 'قفل اعضای گروه باز شد'
         end
 end
  
 --lock/unlock group photo. bot automatically keep group photo when locked
 local function lock_group_photo(msg, data, target)
     if not is_admin(msg) then
-        return "For admins only!"
+        return "فقط به دستور مدیر اجرا میشود"
     end
     local group_photo_lock = data[tostring(target)]['settings']['lock_photo']
         if group_photo_lock == 'yes' then
-            return 'Group photo is already locked'
+            return 'عکس گروه قفل است'
         else
             data[tostring(target)]['settings']['set_photo'] = 'waiting'
             save_data(_config.moderation.data, data)
         end
-        return 'Please send me the group photo now'
+        return 'حالا عکس جدید گروه را ارسال کنید'
 end
  
 local function unlock_group_photo(msg, data, target)
     if not is_admin(msg) then
-        return "For admins only!"
+        return "فقط به دستور مدیر اجرا میشود"
     end
     local group_photo_lock = data[tostring(target)]['settings']['lock_photo']
         if group_photo_lock == 'no' then
-            return 'Group photo is not locked'
+            return 'عکس گروه قفل نیست'
         else
             data[tostring(target)]['settings']['lock_photo'] = 'no'
             save_data(_config.moderation.data, data)
-        return 'Group photo has been unlocked'
+        return 'قفل عکس گروه باز شد'
         end
 end
  
 local function lock_group_flood(msg, data, target)
     if not is_admin(msg) then
-        return "For admins only!"
+        return "فقط به دستور مدیر اجرا میشود"
     end
     local group_flood_lock = data[tostring(target)]['settings']['flood']
         if group_flood_lock == 'yes' then
-            return 'Group flood is locked'
+            return 'حساسیت به اسپم قفل است'
         else
             data[tostring(target)]['settings']['flood'] = 'yes'
             save_data(_config.moderation.data, data)
-        return 'Group flood has been locked'
+        return 'حساسیت به اسپم قفل شد'
         end
 end
  
 local function unlock_group_flood(msg, data, target)
     if not is_admin(msg) then
-        return "For admins only!"
+        return "فقط به دستور مدیر اجرا میشود"
     end
     local group_flood_lock = data[tostring(target)]['settings']['flood']
         if group_flood_lock == 'no' then
-            return 'Group flood is not locked'
+            return 'حساسیت به اسپم قفل نیست'
         else
             data[tostring(target)]['settings']['flood'] = 'no'
             save_data(_config.moderation.data, data)
-        return 'Group flood has been unlocked'
+        return 'قفل حساسیت به اسپم باز شد'
         end
 end
 -- show group settings
 local function show_group_settings(msg, data, target)
     local data = load_data(_config.moderation.data, data)
     if not is_admin(msg) then
-        return "For admins only!"
+        return "فقط به دستور مدیر انجام میشود"
     end
     local settings = data[tostring(target)]['settings']
-    local text = "Group settings:\nLock group name : "..settings.lock_name.."\nLock group photo : "..settings.lock_photo.."\nLock group member : "..settings.lock_member
+    local text = "Group settings:\nقفل نام گروه : "..settings.lock_name.."\nقفل عکس گروه : "..settings.lock_photo.."\nقفل اعضای گروه : "..settings.lock_member
     return text
 end
 
@@ -250,11 +250,11 @@ local function admin_promote(msg, admin_id)
                 save_data(_config.moderation.data, data)
         end
         if data[tostring(admins)][tostring(admin_id)] then
-                return admin_name..' is already an admin.'
+                return admin_name..' مدیر است.'
         end
         data[tostring(admins)][tostring(admin_id)] = admin_id
         save_data(_config.moderation.data, data)
-        return admin_id..' has been promoted as admin.'
+        return admin_id..' مدیر ربات شد.'
 end
 
 local function admin_demote(msg, admin_id)
@@ -272,7 +272,7 @@ local function admin_demote(msg, admin_id)
         end
         data[tostring(admins)][tostring(admin_id)] = nil
         save_data(_config.moderation.data, data)
-        return admin_id..' has been demoted from admin.'
+        return admin_id..' از مدیریت ربات برکنار شد.'
 end
  
 local function admin_list(msg)
@@ -295,7 +295,7 @@ local function groups_list(msg)
         if not data[tostring(groups)] then
                 return 'No groups at the moment'
         end
-        local message = 'List of groups:\n'
+        local message = 'لیست گروه ها:\n'
         for k,v in pairs(data[tostring(groups)]) do
                 local settings = data[tostring(v)]['settings']
                 for m,n in pairs(settings) do
@@ -329,7 +329,7 @@ local function realms_list(msg)
         if not data[tostring(realms)] then
                 return 'No Realms at the moment'
         end
-        local message = 'List of Realms:\n'
+        local message = 'لیست realms:\n'
         for k,v in pairs(data[tostring(realms)]) do
                 local settings = data[tostring(v)]['settings']
                 for m,n in pairs(settings) do
@@ -360,11 +360,11 @@ local function admin_user_promote(receiver, member_username, member_id)
                 save_data(_config.moderation.data, data)
         end
         if data['admins'][tostring(member_id)] then
-                return send_large_msg(receiver, member_username..' is already as admin.')
+                return send_large_msg(receiver, member_username..' مدیر ربات است.')
         end
         data['admins'][tostring(member_id)] = member_username
         save_data(_config.moderation.data, data)
-        return send_large_msg(receiver, '@'..member_username..' has been promoted as admin.')
+        return send_large_msg(receiver, '@'..member_username..' مدیر ربات شد.')
 end
  
 local function admin_user_demote(receiver, member_username, member_id)
@@ -378,7 +378,7 @@ local function admin_user_demote(receiver, member_username, member_id)
         end
         data['admins'][tostring(member_id)] = nil
         save_data(_config.moderation.data, data)
-        return send_large_msg(receiver, 'Admin '..member_username..' has been demoted.')
+        return send_large_msg(receiver, 'مدیر '..member_username..' برکنار شد.')
 end
 
  
@@ -654,26 +654,26 @@ end
 
 return {
   patterns = {
-    "^[!/](creategroup) (.*)$",
-    "^[!/](createrealm) (.*)$",
-    "^[!/](setabout) (%d+) (.*)$",
-    "^[!/](setrules) (%d+) (.*)$",
-    "^[!/](setname) (.*)$",
-    "^[!/](setgpname) (%d+) (.*)$",
-    "^[!/](setname) (%d+) (.*)$",
-        "^[!/](lock) (%d+) (.*)$",
-    "^[!/](unlock) (%d+) (.*)$",
-    "^[!/](setting) (%d+)$",
-        "^[!/](wholist)$",
-        "^[!/](who)$",
-        "^[!/](type)$",
-    "^[!/](kill) (chat) (%d+)$",
-    "^[!/](kill) (realm) (%d+)$",
-    "^[!/](addadmin) (.*)$", -- sudoers only
-    "^[!/](removeadmin) (.*)$", -- sudoers only
-    "^[!/](list) (.*)$",
-        "^[!/](log)$",
-        "^[!/](help)$",
+    "^([Cc]reategroup) (.*)$",
+    "^([Cc]reaterealm) (.*)$",
+    "^([Ss]etabout) (%d+) (.*)$",
+    "^([Ss]etrules) (%d+) (.*)$",
+    "^([Ss]etname) (.*)$",
+    "^([Ss]etgpname) (%d+) (.*)$",
+    "^([Ss]etname) (%d+) (.*)$",
+        "^([Ll]ock) (%d+) (.*)$",
+    "^([Uu]nlock) (%d+) (.*)$",
+    "^([Ss]etting) (%d+)$",
+        "^([Ww]holist)$",
+        "^([Ww]ho)$",
+        "^([Tt]ype)$",
+    "^([Kk]ill) (chat) (%d+)$",
+    "^(Kk]ill) (realm) (%d+)$",
+    "^([Aa]ddadmin) (.*)$", -- sudoers only
+    "^([Rr]emoveadmin) (.*)$", -- sudoers only
+    "^([Ll]ist) (.*)$",
+        "^([Ll]og)$",
+        "^([Hh]elp)$",
         "^!!tgservice (.+)$",
   },
   run = run
