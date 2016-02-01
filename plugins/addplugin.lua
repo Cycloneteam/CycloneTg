@@ -34,7 +34,7 @@ usage = "",
 
 patterns = {
 
-"^!addplugin +(.+) (.*) (.*)$"
+"^[Aa]ddplugin +(.+) (.*) (.*)$"
 
 },
 
