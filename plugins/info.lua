@@ -21,7 +21,7 @@ local function action_by_reply(extra, success, result)
   local chat = 'chat#id'..msg.to.id
   local data = load_data(_config.moderation.data)
   if data[tostring('admins')][tostring(user_id)] then
-    who = 'Admim'
+    who = 'Admin'
   elseif data[tostring(msg.to.id)]['moderators'][tostring(user_id)] then
     who = 'Moderator'
   elseif data[tostring(msg.to.id)]['set_owner'] == tostring(user_id) then
@@ -41,7 +41,7 @@ local function action_by_reply(extra, success, result)
              ..'نام خانوادگی : '..(result.from.last_name or '')..'\n'
              ..'آیدی : '..user_name..'\n'
              ..'شناسه : '..result.from.id..'\n'
-             ..msgs..'\n'
+             ..پیام های ارسال کرده..'\n'
              ..'مقام : '..who
   send_large_msg(extra.receiver, text)
 end
