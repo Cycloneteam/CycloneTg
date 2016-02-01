@@ -72,7 +72,7 @@ end
 return {
   description = "pvhelp", 
   usage = {"لیست دستورات برای کار کردن در پی وی ربات برای مشاهده !pvhelp راز بزنید"},
-  patterns = {"^[!/](pvhelp)"}, 
+  patterns = {"^([Pp]vhelp)"}, 
    run = run 
 }
 end
