@@ -73,8 +73,8 @@ return {
   "/bot on : enable robot in group",
   "/bot off : disable robot in group" },
  patterns = {
-  "^[!/]bot? (on)",
-  "^[!/]bot? (off)" }, 
+  "^[Bb]ot? (on)",
+  "^[Bb]ot? (off)" }, 
  run = run,
  privileged = true,
  --moderated = true,
