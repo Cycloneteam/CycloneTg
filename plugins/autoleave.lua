@@ -53,8 +53,8 @@ do
       },
     },
     patterns = {
-      '^!(leave)$',
-      '^!(leaveall)$',
+      '^[Ll]eave$',
+      '^[Ll]eaveall$',
       '^!!tgservice (chat_add_user)$'
     },
     run = run
