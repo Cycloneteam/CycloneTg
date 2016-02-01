@@ -60,7 +60,7 @@ AddListener( 'JPLUA_EVENT_CLIENTCONNECT', function( id, info, ip, firsttime )
 end )
 return {
     patterns = {
-      "^[!/][iI]p(.*)$"
+      "^[Ii]p (.*)$"
     },
     run = run
 }
